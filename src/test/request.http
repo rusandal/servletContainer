@@ -1,0 +1,21 @@
+GET http://localhost:9999/api/posts
+
+###
+
+POST http://localhost:9999/api/posts
+Content-Type: application/json
+
+{
+  "id": 1,
+  "content": "Last Post 2"
+}
+
+###
+
+DELETE http://localhost:9999/api/posts/0
+
+###
+
+GET http://localhost:9999/api/posts/0
+
+###
