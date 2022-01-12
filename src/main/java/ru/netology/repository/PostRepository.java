@@ -2,7 +2,6 @@ package ru.netology.repository;
 
 import ru.netology.model.Post;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
