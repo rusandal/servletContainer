@@ -4,6 +4,8 @@ import ru.netology.exception.NotFoundException;
 import ru.netology.model.Post;
 import ru.netology.repository.PostRepository;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.List;
 
 public class PostService {
@@ -17,7 +19,7 @@ public class PostService {
     return repository.all();
   }
 
-  public Post getById(long id) {
+  public Post getById(long id){
     return repository.getById(id).orElseThrow(NotFoundException::new);
   }
 

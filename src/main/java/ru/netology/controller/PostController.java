@@ -1,6 +1,7 @@
 package ru.netology.controller;
 
 import com.google.gson.Gson;
+import ru.netology.exception.NotFoundException;
 import ru.netology.model.Post;
 import ru.netology.service.PostService;
 
@@ -26,8 +27,13 @@ public class PostController {
 
   public void getById(long id, HttpServletResponse response) throws IOException {
     response.setContentType(APPLICATION_JSON);
-    data = service.getById(id);
-    response.getWriter().print(gson.toJson(data));
+    try{
+      data = service.getById(id);
+      response.getWriter().print(gson.toJson(data));
+    } catch (NotFoundException e){
+      e.getMessage();
+      response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+    }
   }
 
   public void save(Reader body, HttpServletResponse response) throws IOException {
@@ -38,9 +44,14 @@ public class PostController {
   }
 
   public void removeById(long id, HttpServletResponse response) throws IOException {
-    data = service.getById(id);
-    //final var gson = new Gson();
-    service.removeById(id);
-    response.getWriter().print("Post "+gson.toJson(data)+" is deleted");
+    try{
+      data = service.getById(id);
+      //final var gson = new Gson();
+      service.removeById(id);
+      response.getWriter().print("Post "+gson.toJson(data)+" is deleted");
+    } catch (NotFoundException e){
+      e.getMessage();
+      response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+    }
   }
 }
