@@ -16,6 +16,6 @@ DELETE http://localhost:9999/api/posts/0
 
 ###
 
-GET http://localhost:9999/api/posts/0
+GET http://localhost:9999/api/posts/3
 
 ###
