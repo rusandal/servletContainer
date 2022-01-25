@@ -1,6 +1,7 @@
 package ru.netology.servlet;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import ru.netology.config.JavaConfig;
 import ru.netology.controller.PostController;
 import ru.netology.exception.NotFoundException;
 import ru.netology.repository.PostRepository;
@@ -13,8 +14,7 @@ import java.io.IOException;
 
 public class MainServlet extends HttpServlet {
   private PostController controller;
-  private final AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("ru.netology");
-
+  private AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(JavaConfig.class);
 
   @Override
   public void init() {

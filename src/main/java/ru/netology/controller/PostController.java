@@ -41,14 +41,9 @@ public class PostController {
   }
 
   public void removeById(long id, HttpServletResponse response) throws IOException {
-    try{
       data = service.getById(id);
       //final var gson = new Gson();
       service.removeById(id);
       response.getWriter().print("Post "+gson.toJson(data)+" is deleted");
-    } catch (NotFoundException e){
-      e.getMessage();
-      response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-    }
   }
 }
