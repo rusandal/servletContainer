@@ -40,7 +40,7 @@ public class PostController {
     response.getWriter().print(gson.toJson(data));
   }
 
-  public void removeById(long id, HttpServletResponse response) throws IOException {
+  public void removeById(long id, HttpServletResponse response) throws IOException, NotFoundException {
       data = service.getById(id);
       //final var gson = new Gson();
       service.removeById(id);
